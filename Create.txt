@@ -1,0 +1,35 @@
+@model YourNamespace.Models.Insuree
+
+@{
+    ViewBag.Title = "Create Insuree";
+}
+
+<h2>Create Insuree</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Insuree</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!-- Add similar fields for LastName, DateOfBirth, CarYear, CarMake, CarModel, SpeedingTickets, DUI, and CoverageType -->
+
+        <!-- Quote field is removed here -->
+        
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
